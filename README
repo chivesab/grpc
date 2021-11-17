@@ -1,0 +1,39 @@
+This is an application that connects PostgreSQL and MongoDB. You can use "insert", "update" and "delete" in PostgreSQL, and see the corresponding "insert", "update" and "delete" in your MongoDB.
+
+Please make sure your connection urls in PostgreSQL and MongoDB are correct before you run the server_repl.py and client_repl.py
+
+The default connection to PostgreSQL is localhost, please line24 in client_repl.py to your own "username" and "password", and follow the following steps:
+
+
+
+the directory architectures are:
+
+assignment
+  -- assignment1 
+     -- client
+	-- client_repl.py
+     -- server
+	-- server_repl.py
+     -- README
+     -- Pipfile
+     -- photos
+	-- helloworld.proto
+
+
+
+1. Go to server/ and run : python server_repl.py
+
+
+2. Open the other terminal, go to client/ run : python client_repl.py "mongodb+srv://<username>:<password>@cluster1.sinps.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+Replace <username> with the username for you, and replace <password> with the password for the user. Replace myFirstDatabase with the name of the database that connections will use by default. Ensure any option params are URL encoded.
+
+If you meet any problem, please contact yuche.lin@sjsu.edu for more information. Thank you.
+
+
+Note1: Don't forget the Double quotes when you run the client_repl.py 
+Note2: The max_replication_slots is default to 10 slots. If you exceed the number of maximum replication slots, please free one or increase max_replication_slots. To free replication slot, use "select pg_drop_replication_slot(‘your_replication_slot_name');"
+Note3: You can modify the replication_slot name in line27 in the client_repl.py
+
+- Yuche Lin, 09/25/2021
+- yuche.lin@sjsu.edu
